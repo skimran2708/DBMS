@@ -1,0 +1,1 @@
+SELECT DISTINCT rental_id from rental where date(rental_date)=str_to_date("July 5, 2005",'%b-%d-%y');
