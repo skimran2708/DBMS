@@ -1,0 +1,6 @@
+QUERY:
+customer_id <> 5 AND (amount > 8 OR date(payment_date) = '2005-08-23');
+
+TABLE::
+    By the above filter condition we get the payment ID's of those:
+    whose customer id is not equal to 5 and (whose amount is greater than 8 or whose date is equal to 2005-08-23).

@@ -1,0 +1,1 @@
+SELECT * from payment where amount=1.98 OR amount=7.98 OR amount=9.98;
