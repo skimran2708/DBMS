@@ -1,0 +1,39 @@
+1)
+    SELECT COUNT(film.title) AS count 
+    FROM film 
+    INNER JOIN film_category ON film.film_id = film_category.film_id 
+    INNER JOIN category ON film_category.category_id = category.category_id 
+    WHERE film.special_features LIKE '%Deleted Scenes%' AND category.name='Documentary';
+
+
+2)
+    SELECT count(rental_id) 
+    FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id
+    INNER JOIN film on inventory.film_id = film.film_id
+    INNER JOIN film_category on film.film_id = film_category.film_id
+    WHERE film_category.category_id = (SELECT category_id FROM category WHERE name = "Sci-Fi") AND inventory.store_id = (SELECT store_id FROM store WHERE manager_staff_id = (SELECT staff_id FROM staff WHERE first_name="Jon" AND last_name = "Stephens") );
+
+
+3)
+    SELECT * 
+    FROM sales_by_film_category 
+    WHERE category='Animation';
+
+
+4)
+    SELECT film.title 
+    FROM rental 
+    INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id
+    INNER JOIN film ON inventory.film_id = film.film_id
+    INNER JOIN customer ON rental.customer_id = customer.customer_id
+    WHERE customer.first_name = "PATRICIA" and customer.last_name = "JOHNSON"
+    GROUP BY film.film_id order by count(film.film_id) desc limit 3;
+
+
+5)
+    SELECT COUNT(film.title) AS count 
+    FROM film 
+    JOIN inventory ON film.film_id = inventory.film_id 
+    JOIN rental ON inventory.inventory_id = rental.inventory_id 
+    JOIN customer_list ON customer_list.ID = rental.customer_id 
+    WHERE customer_list.name='SUSAN WILSON' AND film.rating='R';
