@@ -52,9 +52,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `imdb`.`movie_has_actors`
+-- Table `imdb`.`movie_actors`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `imdb`.`movie_has_actors` (
+CREATE TABLE IF NOT EXISTS `imdb`.`movie_actors` (
   `movie_movie_id` INT NOT NULL,
   `actors_actor_id` INT NOT NULL,
   PRIMARY KEY (`movie_movie_id`, `actors_actor_id`),
@@ -74,9 +74,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `imdb`.`tvseries_has_actors`
+-- Table `imdb`.`tvseries_actors`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `imdb`.`tvseries_has_actors` (
+CREATE TABLE IF NOT EXISTS `imdb`.`tvseries_actors` (
   `tvseries_series_id` INT NOT NULL,
   `actors_actor_id` INT NOT NULL,
   PRIMARY KEY (`tvseries_series_id`, `actors_actor_id`),
